@@ -10,9 +10,24 @@
 
 @interface ViewController ()
 
+// Added textfield and label properties
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+- (IBAction)tappd:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation ViewController
+
+// Added say my name label action
+- (IBAction)changeLabel:(id)sender {
+    
+    NSString *userName = self.textField.text;
+    self.label.text = [NSString stringWithFormat:@"Hello, %@" ,userName];
+    [self.textField resignFirstResponder];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,4 +39,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tappd:(id)sender {
+    
+    [self.textField resignFirstResponder];
+}
 @end
